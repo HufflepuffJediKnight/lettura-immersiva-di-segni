@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour
 {
-
     public void Pause()
     {
         Time.timeScale = 0.0f;
@@ -15,6 +14,11 @@ public class UI_Controller : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1.0f;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
 }
