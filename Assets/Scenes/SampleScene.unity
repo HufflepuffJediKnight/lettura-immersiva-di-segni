@@ -2171,7 +2171,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: StreamingAssets/disegni_oggi_yt.mp4
+  m_Url: StreamingAssets/morante_hotspot_2.mov
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
