@@ -13,6 +13,16 @@ public class UI_Controller : MonoBehaviour
         for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
     }
 
+    public void Fullscreen()
+    {
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+    }
+
+    public void FullscreenExit()
+    {
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+    }
+
     private void Start()
     {
         PrepareVideos();
