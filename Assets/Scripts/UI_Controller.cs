@@ -7,9 +7,15 @@ using UnityEngine.Video;
 
 public class UI_Controller : MonoBehaviour
 {
+    public VideoPlayer[] videoPlayers;
+    void PrepareVideos()
+    {
+        for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
+    }
+
     private void Start()
     {
-        GetComponent<VideoPlayer>().Prepare();
+        PrepareVideos();
     }
 
     public void Pause()
