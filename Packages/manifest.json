@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.de-panther.webxr": "0.22.0",
+    "com.de-panther.webxr-input-profiles-loader": "0.6.2",
     "com.de-panther.webxr-interactions": "0.22.0",
     "com.unity.collab-proxy": "2.4.3",
     "com.unity.feature.2d": "2.0.0",
