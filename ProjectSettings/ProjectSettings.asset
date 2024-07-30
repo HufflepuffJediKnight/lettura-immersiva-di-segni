@@ -144,6 +144,10 @@ PlayerSettings:
   - {fileID: 102900000, guid: 68a2a84f9de02614189f66a408bd3a13, type: 3}
   - {fileID: 102900000, guid: e0afb61e9f01ff6498c5c85280320e74, type: 3}
   - {fileID: 0}
+  - {fileID: 6232218316088386387, guid: 10d8e1adb6cfbb149a5da7130ff2954e, type: 2}
+  - {fileID: 11400000, guid: e2eafc436faa50445a61572ba7aa0235, type: 2}
+  - {fileID: 11400000, guid: 9ec6b6bf028890a4fa0f7062795ab8d9, type: 2}
+  - {fileID: -4684126167428394462, guid: f9f1b595af3ef7645a3a7a0f8ab8d650, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -433,7 +437,9 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: WebGL
+    m_EncodingQuality: 0
   m_BuildTargetGroupHDRCubemapEncodingQuality: []
   m_BuildTargetGroupLightmapSettings:
   - m_BuildTarget: WebGL
@@ -679,7 +685,7 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 32
-  webGLExceptionSupport: 1
+  webGLExceptionSupport: 2
   webGLNameFilesAsHashes: 0
   webGLShowDiagnostics: 0
   webGLDataCaching: 1
@@ -693,7 +699,7 @@ PlayerSettings:
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  webGLDecompressionFallback: 0
+  webGLDecompressionFallback: 1
   webGLInitialMemorySize: 32
   webGLMaximumMemorySize: 2048
   webGLMemoryGrowthMode: 2
