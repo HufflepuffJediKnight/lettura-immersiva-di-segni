@@ -37,10 +37,10 @@ public class UI_Controller : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
-
+/*
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+*/
 }
