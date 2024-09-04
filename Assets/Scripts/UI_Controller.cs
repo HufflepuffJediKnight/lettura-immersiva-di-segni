@@ -7,13 +7,8 @@ using UnityEngine.Video;
 
 public class UI_Controller : MonoBehaviour
 {
-    public VideoPlayer[] videoPlayers;
     int currentScene;
 
-    void PrepareVideos()
-    {
-        for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
-    }
 /*
     public void Fullscreen()
     {
@@ -27,7 +22,6 @@ public class UI_Controller : MonoBehaviour
 */
     private void Start()
     {
-        PrepareVideos();
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 

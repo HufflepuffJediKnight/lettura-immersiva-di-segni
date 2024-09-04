@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers: []
 --- !u!95 &311109153
 Animator:
   serializedVersion: 5
@@ -409,6 +408,7 @@ GameObject:
   - component: {fileID: 400281230}
   - component: {fileID: 400281228}
   - component: {fileID: 400281234}
+  - component: {fileID: 400281235}
   m_Layer: 5
   m_Name: UI_Canvas
   m_TagString: Untagged
@@ -428,7 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers: []
 --- !u!114 &400281230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +535,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &400281235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400281227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c49dfc0aa54b7143b2d7e33c833cecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayers:
+  - {fileID: 1778105532}
+  - {fileID: 736016258}
+  Hotspots:
+  - {fileID: 1829971018}
+  - {fileID: 1407937972}
 --- !u!1 &429029766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers: []
 --- !u!95 &617189253
 Animator:
   serializedVersion: 5
@@ -2498,10 +2514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers:
-  - {fileID: 1369726403}
-  - {fileID: 1778105532}
-  - {fileID: 736016258}
 --- !u!1 &1369726402
 GameObject:
   m_ObjectHideFlags: 0
