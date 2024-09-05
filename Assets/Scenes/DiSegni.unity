@@ -553,6 +553,8 @@ MonoBehaviour:
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
+  controller: {fileID: 0}
+  pauseButton: {fileID: 2088425967}
 --- !u!1 &429029766
 GameObject:
   m_ObjectHideFlags: 0
