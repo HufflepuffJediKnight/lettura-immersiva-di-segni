@@ -5,17 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using System;
-using static UI_Controller;
 
 public class Video_Controller : MonoBehaviour
 {
     public VideoPlayer[] videoPlayers;
     VideoPlayer currentPlayer;
     public GameObject[] Hotspots;
-    public UI_Controller controller;
     public GameObject pauseButton;
+    public UI_Controller controller;
 
-    void PrepareVideos()
+    public void PrepareVideos()
     {
         for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
     }
@@ -58,13 +57,21 @@ public class Video_Controller : MonoBehaviour
 
     // disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo)
     // che prende da un array di hotspot
-    private void AutoCloseHotspots(VideoPlayer source)
+    public void AutoCloseHotspots(VideoPlayer player)
     {
-        for (int i = 0; i < Hotspots.Length; i++)
+        try
         {
-            Hotspots[i].SetActive(false);
+            foreach (var i in Hotspots)
+            {
+                i.SetActive(false);
+            }
+            controller.Play();
+            pauseButton.SetActive(true);
         }
-        controller.Play();
+        catch
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -25,7 +25,7 @@ public class UI_Controller : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void Pause()
+    public void Pause(UI_Controller controller)
     {
         Time.timeScale = 0.0f;
     }

@@ -553,8 +553,8 @@ MonoBehaviour:
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
-  controller: {fileID: 0}
   pauseButton: {fileID: 2088425967}
+  controller: {fileID: 400281228}
 --- !u!1 &429029766
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,10 +809,10 @@ MonoBehaviour:
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
         m_MethodName: Pause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 617189252}
+          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2053,10 +2053,10 @@ MonoBehaviour:
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
         m_MethodName: Pause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 617189252}
+          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2754,10 +2754,10 @@ MonoBehaviour:
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
         m_MethodName: Pause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 617189252}
+          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3216,10 +3216,10 @@ MonoBehaviour:
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
         m_MethodName: Pause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 617189252}
+          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3967,10 +3967,10 @@ MonoBehaviour:
       - m_Target: {fileID: 617189252}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
         m_MethodName: Pause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 617189252}
+          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
