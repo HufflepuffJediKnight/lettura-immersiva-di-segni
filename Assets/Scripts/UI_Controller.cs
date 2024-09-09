@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using UnityEngine.Rendering.PostProcessing;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -38,6 +39,21 @@ public class UI_Controller : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(currentScene);
+    }
+
+    public void Blur(bool isBlurred)
+    {
+        PostProcessVolume postVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+        if (!isBlurred)
+        {
+            postVolume.enabled = true;
+            isBlurred = true;
+        }
+        else
+        {
+            postVolume.enabled = false;
+        }
+        
     }
 
 }

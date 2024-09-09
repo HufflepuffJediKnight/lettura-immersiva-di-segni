@@ -12,6 +12,7 @@ public class Video_Controller : MonoBehaviour
     VideoPlayer currentPlayer;
     public GameObject[] Hotspots;
     public GameObject pauseButton;
+    public Button menuButton;
     public UI_Controller controller;
 
     public void PrepareVideos()
@@ -51,6 +52,7 @@ public class Video_Controller : MonoBehaviour
             {
                 currentPlayer = i;
                 currentPlayer.loopPointReached += AutoCloseHotspots;
+                menuButton.enabled = false;
             }
         }
     }
@@ -66,7 +68,9 @@ public class Video_Controller : MonoBehaviour
                 i.SetActive(false);
             }
             controller.Play();
+            controller.Blur(false);
             pauseButton.SetActive(true);
+            menuButton.enabled = true; 
         }
         catch
         {
