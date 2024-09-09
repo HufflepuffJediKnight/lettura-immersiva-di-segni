@@ -68,7 +68,7 @@ public class Video_Controller : MonoBehaviour
                 i.SetActive(false);
             }
             controller.Play();
-            controller.Blur(false);
+            controller.Blur(true);
             pauseButton.SetActive(true);
             menuButton.enabled = true; 
         }
