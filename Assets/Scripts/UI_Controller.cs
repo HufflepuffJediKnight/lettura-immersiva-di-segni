@@ -5,10 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.Rendering.PostProcessing;
+using System;
 
 public class UI_Controller : MonoBehaviour
 {
     int currentScene;
+    public Button button1;
+    public Button button2;
 
 /*
     public void Fullscreen()
@@ -24,6 +27,8 @@ public class UI_Controller : MonoBehaviour
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
+        button1.onClick.AddListener(delegate { Button.DestroyImmediate(button1); });
+        button2.onClick.AddListener(delegate { Button.DestroyImmediate(button2); });
     }
 
     public void Pause(UI_Controller controller)

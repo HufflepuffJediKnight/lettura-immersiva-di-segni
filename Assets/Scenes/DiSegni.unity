@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 1681207670}
+  button2: {fileID: 1436002186}
 --- !u!95 &311109153
 Animator:
   serializedVersion: 5
@@ -428,6 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
+  button2: {fileID: 0}
 --- !u!114 &400281230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,18 +1099,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1436002184}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &488650757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,6 +1341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
+  button2: {fileID: 0}
 --- !u!95 &617189253
 Animator:
   serializedVersion: 5
@@ -2668,6 +2662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
+  button2: {fileID: 0}
 --- !u!1 &1369726402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,18 +3198,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1681207668}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1499530496
 MonoBehaviour:
@@ -4143,6 +4127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
+  button2: {fileID: 0}
 --- !u!1 &2088425967
 GameObject:
   m_ObjectHideFlags: 0
