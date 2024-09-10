@@ -27,8 +27,8 @@ public class UI_Controller : MonoBehaviour
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        button1.onClick.AddListener(delegate { Button.DestroyImmediate(button1); });
-        button2.onClick.AddListener(delegate { Button.DestroyImmediate(button2); });
+        button1.onClick.AddListener(delegate { ButtonDestroyer(button1); });
+        button2.onClick.AddListener(delegate { ButtonDestroyer(button2); });
     }
 
     public void Pause(UI_Controller controller)
@@ -59,6 +59,12 @@ public class UI_Controller : MonoBehaviour
             postVolume.enabled = false;
         }
         
+    }
+
+    public void ButtonDestroyer(Button button)
+    {
+        Button.Destroy(button);
+        button.image.color = new Color(0, 0, 0, 0);
     }
 
 }
