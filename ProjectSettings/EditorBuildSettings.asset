@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DiSegni.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/DiSegni 2.unity
+    path: Assets/Scenes/DiSegni_2.unity
     guid: 95b4053a6dce70c4ead7e6c35cc9b1a9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b3095bd664791f84a86a3754fd6be628, type: 2}
