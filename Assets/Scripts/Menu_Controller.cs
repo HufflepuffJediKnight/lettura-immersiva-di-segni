@@ -6,8 +6,6 @@ using System;
 
 public class Menu_Controller : MonoBehaviour
 {
-    public int nonvrindex;
-    public int vrindex;
 
     public void SceneChooser(int sceneIndex)
     {
