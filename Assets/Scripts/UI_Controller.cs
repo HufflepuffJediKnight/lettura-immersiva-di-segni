@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using System;
 

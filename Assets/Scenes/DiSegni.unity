@@ -557,6 +557,7 @@ MonoBehaviour:
   - {fileID: 1778105532}
   - {fileID: 736016258}
   mainPlayer: {fileID: 1369726403}
+  mainAnimation: {fileID: 0}
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
@@ -2694,6 +2695,7 @@ MonoBehaviour:
   - {fileID: 1778105532}
   - {fileID: 736016258}
   mainPlayer: {fileID: 1369726403}
+  mainAnimation: {fileID: 0}
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
@@ -2749,7 +2751,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 0
