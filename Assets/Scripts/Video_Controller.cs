@@ -12,7 +12,6 @@ public class Video_Controller : MonoBehaviour
     public VideoPlayer[] videoPlayers;
     VideoPlayer currentPlayer;
     public VideoPlayer mainPlayer;
-    public AnimationClip mainAnimation;
     public GameObject[] Hotspots;
     public GameObject pauseButton;
     public GameObject restartButton;
@@ -41,11 +40,6 @@ public class Video_Controller : MonoBehaviour
     private void Start()
     {
         //        PrepareVideos();
-        if (SplashScreen.isFinished)
-        {
-            mainPlayer.Play();
-            controller.Play();
-        }
     }
 
     private void Update()
