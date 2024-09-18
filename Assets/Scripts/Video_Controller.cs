@@ -12,33 +12,38 @@ public class Video_Controller : MonoBehaviour
     VideoPlayer currentPlayer;
     public GameObject[] Hotspots;
     public GameObject pauseButton;
+    public GameObject restartButton;
     public Button menuButton;
+    public GameObject menuCanvas;
     public UI_Controller controller;
 
-    public void PrepareVideos()
-    {
-        for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
-    }
-/*
-    public void Fullscreen()
-    {
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-    }
+    /*
+        public void PrepareVideos()
+        {
+            for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
+        }
+    */
 
-    public void FullscreenExit()
-    {
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-    }
-*/
+    /*
+        public void Fullscreen()
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+
+        public void FullscreenExit()
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+    */
     private void Start()
     {
-        PrepareVideos();
+        //        PrepareVideos();
     }
 
     private void Update()
     {
         CheckVideoStatus();
-        
+
     }
 
     //controlla se uno dei due videoplayer degli hotspot sta riproducendo un video
@@ -51,8 +56,15 @@ public class Video_Controller : MonoBehaviour
             if (i.isPlaying)
             {
                 currentPlayer = i;
-                currentPlayer.loopPointReached += AutoCloseHotspots;
-                menuButton.enabled = false;
+                if (CompareTag("Hotspot"))
+                {
+                    currentPlayer.loopPointReached += AutoCloseHotspots;
+                    menuButton.enabled = false;
+                }
+                else
+                {
+                    currentPlayer.loopPointReached += AutoCloseButtons;
+                }
             }
         }
     }
@@ -70,12 +82,20 @@ public class Video_Controller : MonoBehaviour
             controller.Play();
             controller.Blur(true);
             pauseButton.SetActive(true);
-            menuButton.enabled = true; 
+            menuButton.enabled = true;
         }
         catch
         {
             throw new NotImplementedException();
         }
+    }
+
+    public void AutoCloseButtons(VideoPlayer player)
+    {
+        pauseButton.SetActive(false);
+        menuButton.gameObject.SetActive(false);
+        restartButton.SetActive(true);
+        menuCanvas.SetActive(false);
     }
 
 }

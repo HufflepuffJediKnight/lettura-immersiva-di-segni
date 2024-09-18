@@ -12,23 +12,28 @@ public class UI_Controller : MonoBehaviour
     int currentScene;
     public Button button1;
     public Button button2;
+    public Button pauseButton;
 
-/*
-    public void Fullscreen()
-    {
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-    }
+    /*
+        public void Fullscreen()
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
 
-    public void FullscreenExit()
-    {
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-    }
-*/
+        public void FullscreenExit()
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
+    */
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
         button1.onClick.AddListener(delegate { ButtonDestroyer(button1); });
         button2.onClick.AddListener(delegate { ButtonDestroyer(button2); });
+    }
+    private void Update()
+    {
+        CheckInputMethod();
     }
 
     public void Pause(UI_Controller controller)
@@ -58,7 +63,7 @@ public class UI_Controller : MonoBehaviour
         {
             postVolume.enabled = false;
         }
-        
+
     }
 
     public void ButtonDestroyer(Button button)
@@ -67,4 +72,11 @@ public class UI_Controller : MonoBehaviour
         button.image.color = new Color(0, 0, 0, 0);
     }
 
+    public void CheckInputMethod()
+    {
+        if (Input.touchCount != 0)
+        {
+            pauseButton.image.color = new Color(250, 250, 250);
+        }
+    }
 }
