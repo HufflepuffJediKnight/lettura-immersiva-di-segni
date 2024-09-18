@@ -10,6 +10,7 @@ public class Video_Controller : MonoBehaviour
 {
     public VideoPlayer[] videoPlayers;
     VideoPlayer currentPlayer;
+    public VideoPlayer mainPlayer;
     public GameObject[] Hotspots;
     public GameObject pauseButton;
     public GameObject restartButton;
@@ -56,17 +57,11 @@ public class Video_Controller : MonoBehaviour
             if (i.isPlaying)
             {
                 currentPlayer = i;
-                if (CompareTag("Hotspot"))
-                {
-                    currentPlayer.loopPointReached += AutoCloseHotspots;
-                    menuButton.enabled = false;
-                }
-                else
-                {
-                    currentPlayer.loopPointReached += AutoCloseButtons;
-                }
+                currentPlayer.loopPointReached += AutoCloseHotspots;
+                menuButton.enabled = false;
             }
         }
+        mainPlayer.loopPointReached += AutoCloseButtons;
     }
 
     // disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo)

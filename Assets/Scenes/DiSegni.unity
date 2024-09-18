@@ -556,6 +556,7 @@ MonoBehaviour:
   videoPlayers:
   - {fileID: 1778105532}
   - {fileID: 736016258}
+  mainPlayer: {fileID: 1369726403}
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
@@ -1345,9 +1346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  pauseButton: {fileID: 0}
+  button1: {fileID: 1681207670}
+  button2: {fileID: 1436002186}
+  pauseButton: {fileID: 2088425969}
 --- !u!95 &617189253
 Animator:
   serializedVersion: 7
@@ -2690,9 +2691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayers:
-  - {fileID: 1369726403}
   - {fileID: 1778105532}
   - {fileID: 736016258}
+  mainPlayer: {fileID: 1369726403}
   Hotspots:
   - {fileID: 1829971018}
   - {fileID: 1407937972}
