@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using System;
 
 public class UI_Controller : MonoBehaviour
 {
     int currentScene;
+    public Animator animationController;
     public Button button1;
     public Button button2;
     public Button pauseButton;
+    public Button playButton;
 
     /*
         public void Fullscreen()
@@ -70,14 +71,22 @@ public class UI_Controller : MonoBehaviour
     public void ButtonDestroyer(Button button)
     {
         Button.Destroy(button);
+        animationController.enabled = false;
         button.image.color = new Color(0, 0, 0, 0);
+        animationController.enabled = true;
     }
 
     public void CheckInputMethod()
     {
         if (Input.touchCount != 0)
         {
-            pauseButton.image.color = new Color(250, 250, 250);
+            ColorBlock cb = pauseButton.colors;
+            cb.normalColor = new Color(250, 250, 250);
+            pauseButton.colors = cb;
+            pauseButton.transform.localScale = new Vector3(2, 2, 2);
+            pauseButton.transform.position = new Vector3(0, -440, 0);
+            playButton.transform.localScale = new Vector3(2, 2, 2);
+            playButton.transform.position = new Vector3(0, -440, 0);
         }
     }
 }

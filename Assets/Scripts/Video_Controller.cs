@@ -26,17 +26,6 @@ public class Video_Controller : MonoBehaviour
         }
     */
 
-    /*
-        public void Fullscreen()
-        {
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-        }
-
-        public void FullscreenExit()
-        {
-            Screen.fullScreenMode = FullScreenMode.Windowed;
-        }
-    */
     private void Start()
     {
         //        PrepareVideos();
@@ -45,7 +34,6 @@ public class Video_Controller : MonoBehaviour
     private void Update()
     {
         CheckVideoStatus();
-
     }
 
     //controlla se uno dei due videoplayer degli hotspot sta riproducendo un video
