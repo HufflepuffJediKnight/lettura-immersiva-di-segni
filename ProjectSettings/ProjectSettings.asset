@@ -51,7 +51,7 @@ PlayerSettings:
   unsupportedMSAAFallback: 0
   m_SpriteBatchVertexThreshold: 300
   m_MTRendering: 1
-  mipStripping: 0
+  mipStripping: 1
   numberOfMipsStripped: 0
   numberOfMipsStrippedPerMipmapLimitGroup: {}
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
@@ -141,10 +141,14 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0
   preloadedAssets:
-  - {fileID: 102900000, guid: 26893bf2c4035bb478960637e2154959, type: 3}
-  - {fileID: 102900000, guid: 1de7d758bc42b3249afc51aec56bb047, type: 3}
+  - {fileID: 102900000, guid: 34665bb47ac9f724c9b95f8879b926f2, type: 3}
+  - {fileID: 102900000, guid: 20d648162c5c6a744991f59a1f9a8de8, type: 3}
   - {fileID: 102900000, guid: b2fefa2192ca0b344bdb11bf1ba709f5, type: 3}
   - {fileID: 11400000, guid: 9ec6b6bf028890a4fa0f7062795ab8d9, type: 2}
+  - {fileID: -944628639613478452, guid: 327cd82b892f4154c95b54d4e7f03074, type: 3}
+  - {fileID: 6232218316088386387, guid: 10d8e1adb6cfbb149a5da7130ff2954e, type: 2}
+  - {fileID: -4684126167428394462, guid: f9f1b595af3ef7645a3a7a0f8ab8d650, type: 2}
+  - {fileID: 11400000, guid: e2eafc436faa50445a61572ba7aa0235, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -186,7 +190,7 @@ PlayerSettings:
   CreateWallpaper: 0
   androidSplitApplicationBinary: 0
   keepLoadedShadersAlive: 0
-  StripUnusedMeshComponents: 0
+  StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988

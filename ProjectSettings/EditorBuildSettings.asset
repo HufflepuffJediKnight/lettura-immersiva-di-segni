@@ -5,11 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/DiSegni_Menu.unity
-    guid: 7236cb9b361011f4da33b8ab01acfc33
   - enabled: 1
-    path: Assets/Scenes/DiSegni_Menu2.unity
+    path: Assets/Scenes/DiSegni_Menu.unity
     guid: 9de9c0078f49c1b428317f590c9ddf82
   - enabled: 1
     path: Assets/Scenes/DiSegni.unity

@@ -6,6 +6,7 @@ using System;
 
 public class Menu_Controller : MonoBehaviour
 {
+/*
     private void Start()
     {
         StartCoroutine(ExampleCoroutine());
@@ -16,9 +17,9 @@ public class Menu_Controller : MonoBehaviour
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(1);
     }
+*/
     public void SceneChooser(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }
-
 }

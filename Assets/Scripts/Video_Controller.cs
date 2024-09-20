@@ -19,20 +19,23 @@ public class Video_Controller : MonoBehaviour
     public GameObject menuCanvas;
     public UI_Controller controller;
 
-    /*
-        public void PrepareVideos()
+    public void PrepareVideos()
+    {
+        for (int i = 0; i < videoPlayers.Length; i++)
         {
-            for (int i = 0; i < videoPlayers.Length; i++) GetComponent<VideoPlayer>().Prepare();
+            videoPlayers[i].GetComponent<VideoPlayer>().Prepare();
         }
-    */
+        mainPlayer.GetComponent<VideoPlayer>().Prepare();
+    }
 
     private void Start()
     {
-        //        PrepareVideos();
+        
     }
 
     private void Update()
     {
+        PrepareVideos();
         CheckVideoStatus();
     }
 
@@ -51,6 +54,15 @@ public class Video_Controller : MonoBehaviour
             }
         }
         mainPlayer.loopPointReached += AutoCloseButtons;
+    }
+
+    public void HotspotPlayer(VideoPlayer player)
+    {
+        if (player.isPrepared)
+        {
+            player.timeUpdateMode = VideoTimeUpdateMode.DSPTime;
+            player.Play();
+        }
     }
 
     // disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo)
