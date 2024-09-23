@@ -10,11 +10,14 @@ using System;
 public class UI_Controller : MonoBehaviour
 {
     int currentScene;
+    public UI_Controller controller;
     public Animator animationController;
     public Button button1;
     public Button button2;
     public Button pauseButton;
     public Button playButton;
+    bool isPaused = false;
+    Video_Controller videoController;
 
     /*
         public void Fullscreen()
@@ -36,17 +39,26 @@ public class UI_Controller : MonoBehaviour
     private void Update()
     {
         CheckInputMethod();
+        PauseToggle(controller);
     }
 
+    /*
     public void Pause(UI_Controller controller)
     {
         Time.timeScale = 0.0f;
+        isPaused = true;
+        pauseButton.gameObject.SetActive(false);
+        playButton.gameObject.SetActive(true);
     }
 
     public void Play()
     {
         Time.timeScale = 1.0f;
+        isPaused = false;
+        pauseButton.gameObject.SetActive(true);
+        playButton.gameObject.SetActive(false);
     }
+    */
 
     public void Restart()
     {
@@ -74,6 +86,39 @@ public class UI_Controller : MonoBehaviour
         animationController.enabled = false;
         button.image.color = new Color(0, 0, 0, 0);
         animationController.enabled = true;
+    }
+
+    public void PauseToggle(UI_Controller controller)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!isPaused)
+            {
+                Time.timeScale = 0.0f;
+                isPaused = true;
+                pauseButton.gameObject.SetActive(false);
+                playButton.gameObject.SetActive(true);
+            }
+
+            else if (isPaused)
+            {
+                Time.timeScale = 1.0f;
+                isPaused = false;
+                pauseButton.gameObject.SetActive(true);
+                playButton.gameObject.SetActive(false);
+            }
+
+            else
+            {
+                foreach (var coso in videoController.Hotspots)
+                {
+                    if (coso.activeSelf)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     public void CheckInputMethod()
