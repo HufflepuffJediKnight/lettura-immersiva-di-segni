@@ -13,7 +13,7 @@ public class Video_Controller : MonoBehaviour
     VideoPlayer currentPlayer;
     public VideoPlayer mainPlayer;
     public GameObject[] Hotspots;
-    public GameObject pauseButton;
+    [SerializeField] GameObject pauseButton;
     public GameObject restartButton;
     public Button menuButton;
     public GameObject menuCanvas;

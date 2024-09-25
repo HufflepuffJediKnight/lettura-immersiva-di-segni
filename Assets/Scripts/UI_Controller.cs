@@ -19,12 +19,12 @@ public class UI_Controller : MonoBehaviour
     bool isPaused = false;
     Video_Controller videoController;
 
-    /*
+
         public void Fullscreen()
         {
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
-
+    /*
         public void FullscreenExit()
         {
             Screen.fullScreenMode = FullScreenMode.Windowed;
