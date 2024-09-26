@@ -118,6 +118,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &135865886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135865888}
+  - component: {fileID: 135865887}
+  m_Layer: 0
+  m_Name: Input_Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &135865887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135865886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dd6c69ab3939649a4853f997c6ad3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &135865888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135865886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &256137055
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,12 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 311109152}
-  animationController: {fileID: 311109153}
-  button1: {fileID: 1681207670}
-  button2: {fileID: 1436002186}
-  pauseButton: {fileID: 2088425969}
-  playButton: {fileID: 1966089096}
+  isPaused: 0
 --- !u!95 &311109153
 Animator:
   serializedVersion: 7
@@ -433,12 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 400281228}
-  animationController: {fileID: 400281234}
-  button1: {fileID: 1681207670}
-  button2: {fileID: 1436002186}
-  pauseButton: {fileID: 2088425969}
-  playButton: {fileID: 1966089096}
+  isPaused: 0
 --- !u!114 &400281230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,18 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c49dfc0aa54b7143b2d7e33c833cecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers:
-  - {fileID: 1778105532}
-  - {fileID: 736016258}
-  mainPlayer: {fileID: 1369726403}
-  Hotspots:
-  - {fileID: 1829971018}
-  - {fileID: 1407937972}
-  pauseButton: {fileID: 2088425967}
-  restartButton: {fileID: 974063855}
-  menuButton: {fileID: 722209376}
-  menuCanvas: {fileID: 1983441586}
-  controller: {fileID: 400281228}
 --- !u!1 &429029766
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,11 +930,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1983441591}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1983441591}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1100,11 +1122,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 400281228}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 400281228}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1352,12 +1374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 617189252}
-  animationController: {fileID: 617189253}
-  button1: {fileID: 1681207670}
-  button2: {fileID: 1436002186}
-  pauseButton: {fileID: 2088425969}
-  playButton: {fileID: 1966089096}
+  isPaused: 0
 --- !u!95 &617189253
 Animator:
   serializedVersion: 7
@@ -1623,7 +1640,7 @@ GameObject:
   - component: {fileID: 736016257}
   - component: {fileID: 736016258}
   m_Layer: 0
-  m_Name: Hotspot 2 Player
+  m_Name: Hotspot_2_Player
   m_TagString: Hotspot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,7 +1655,7 @@ Transform:
   m_GameObject: {fileID: 736016256}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 194.94133, y: 237.72878, z: -3.3706055}
+  m_LocalPosition: {x: 194.94131, y: 237.72879, z: -3.3706057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2278,11 +2295,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1983441591}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1983441591}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2684,12 +2701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1328123339}
-  animationController: {fileID: 1328123338}
-  button1: {fileID: 1681207670}
-  button2: {fileID: 1436002186}
-  pauseButton: {fileID: 2088425969}
-  playButton: {fileID: 1966089096}
+  isPaused: 0
 --- !u!114 &1328123340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,18 +2714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c49dfc0aa54b7143b2d7e33c833cecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayers:
-  - {fileID: 1778105532}
-  - {fileID: 736016258}
-  mainPlayer: {fileID: 1369726403}
-  Hotspots:
-  - {fileID: 1829971018}
-  - {fileID: 1407937972}
-  pauseButton: {fileID: 2088425967}
-  restartButton: {fileID: 974063855}
-  menuButton: {fileID: 722209376}
-  menuCanvas: {fileID: 1983441586}
-  controller: {fileID: 617189252}
 --- !u!1 &1369726402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,7 +2725,7 @@ GameObject:
   - component: {fileID: 1369726404}
   - component: {fileID: 1369726403}
   m_Layer: 5
-  m_Name: Video Player
+  m_Name: Video_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2795,7 +2795,7 @@ GameObject:
   - component: {fileID: 1407937974}
   m_Layer: 5
   m_Name: Hotspot_2
-  m_TagString: Untagged
+  m_TagString: Hotspot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3033,13 +3033,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 400281235}
-        m_TargetAssemblyTypeName: Video_Controller, Assembly-CSharp
-        m_MethodName: HotspotPlayer
-        m_Mode: 2
+      - m_Target: {fileID: 736016258}
+        m_TargetAssemblyTypeName: UnityEngine.Video.VideoPlayer, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 736016258}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Video.VideoPlayer, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3047,11 +3047,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 311109152}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3239,11 +3239,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 400281228}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 400281228}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3544,13 +3544,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 400281235}
-        m_TargetAssemblyTypeName: Video_Controller, Assembly-CSharp
-        m_MethodName: HotspotPlayer
-        m_Mode: 2
+      - m_Target: {fileID: 1778105532}
+        m_TargetAssemblyTypeName: UnityEngine.Video.VideoPlayer, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1778105532}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Video.VideoPlayer, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3558,11 +3558,11 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 311109152}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 311109152}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3617,7 +3617,7 @@ GameObject:
   - component: {fileID: 1778105533}
   - component: {fileID: 1778105532}
   m_Layer: 0
-  m_Name: Hotspot 1 Player
+  m_Name: Hotspot_1_Player
   m_TagString: Hotspot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3668,7 +3668,7 @@ Transform:
   m_GameObject: {fileID: 1778105531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 194.94133, y: 237.72878, z: -3.3706055}
+  m_LocalPosition: {x: 194.94131, y: 237.72879, z: -3.3706057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3687,7 +3687,7 @@ GameObject:
   - component: {fileID: 1829971022}
   m_Layer: 5
   m_Name: Hotspot_1
-  m_TagString: Untagged
+  m_TagString: Hotspot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3765,7 +3765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1916450918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4011,11 +4011,11 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 617189252}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 617189252}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4161,7 +4161,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 5
@@ -4178,12 +4178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1983441591}
-  animationController: {fileID: 1328123338}
-  button1: {fileID: 1681207670}
-  button2: {fileID: 1436002186}
-  pauseButton: {fileID: 2088425969}
-  playButton: {fileID: 1966089096}
+  isPaused: 0
 --- !u!1 &2088425967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,11 +4287,11 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 617189252}
         m_TargetAssemblyTypeName: UI_Controller, Assembly-CSharp
-        m_MethodName: PauseToggle
-        m_Mode: 2
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 617189252}
-          m_ObjectArgumentAssemblyTypeName: UI_Controller, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4317,7 +4312,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: -910, y: 0, z: -910, w: 0}
+  m_RaycastPadding: {x: -840, y: 0, z: -840, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4330,7 +4325,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2088425971
 CanvasRenderer:
@@ -4352,3 +4347,4 @@ SceneRoots:
   - {fileID: 1673514472}
   - {fileID: 1369726404}
   - {fileID: 1983441587}
+  - {fileID: 135865888}

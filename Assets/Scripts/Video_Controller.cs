@@ -1,36 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.Video;
-using UnityEngine.Rendering;
 using System;
+using System.Linq;
+using UnityEngine.UI;
 
 public class Video_Controller : MonoBehaviour
 {
-    public VideoPlayer[] videoPlayers;
+    UI_Controller uiController;
+
+    GameObject[] _videoPlayers;
+    VideoPlayer _mainPlayer;
+    GameObject[] _hotspots;
+
     VideoPlayer currentPlayer;
-    public VideoPlayer mainPlayer;
-    public GameObject[] Hotspots;
-    [SerializeField] GameObject pauseButton;
-    public GameObject restartButton;
-    public Button menuButton;
-    public GameObject menuCanvas;
-    public UI_Controller controller;
+
+    public GameObject[] VideoPlayers
+    {
+        get { return _videoPlayers; }
+        set
+        {
+            VideoPlayers.Append(MainPlayer.gameObject).ToArray();
+            VideoPlayers.Append(GameObject.Find("Hotspot_1_Player")).ToArray();
+            VideoPlayers.Append(GameObject.Find("Hotspot_2_Player")).ToArray();
+        }
+    }
+    public VideoPlayer MainPlayer
+    {
+        get { return _mainPlayer; }
+        set { _mainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>(); }
+    }
+    public GameObject[] Hotspots
+    {
+        get { return _hotspots; }
+        set
+        {
+            Hotspots = Hotspots.Append(GameObject.Find("Hotspot_1")).ToArray();
+            Hotspots = Hotspots.Append(GameObject.Find("Hotspot_2")).ToArray();
+        }
+    }
 
     public void PrepareVideos()
     {
-        for (int i = 0; i < videoPlayers.Length; i++)
+        for (int i = 0; i < VideoPlayers.Length; i++)
         {
-            videoPlayers[i].GetComponent<VideoPlayer>().Prepare();
+            VideoPlayers[i].GetComponent<VideoPlayer>().Prepare();
         }
-        mainPlayer.GetComponent<VideoPlayer>().Prepare();
+        MainPlayer.GetComponent<VideoPlayer>().Prepare();
     }
 
     private void Start()
     {
-        
     }
 
     private void Update()
@@ -44,18 +63,19 @@ public class Video_Controller : MonoBehaviour
     //attiverà la funzione AutoCloseHotspots
     public void CheckVideoStatus()
     {
-        foreach (var i in videoPlayers)
+        foreach (var i in VideoPlayers)
         {
-            if (i.isPlaying)
+            currentPlayer = i.GetComponent<VideoPlayer>();
+            if (currentPlayer.isPlaying)
             {
-                currentPlayer = i;
                 currentPlayer.loopPointReached += AutoCloseHotspots;
-                menuButton.enabled = false;
+                uiController.MenuButton.enabled = false;
             }
         }
-        mainPlayer.loopPointReached += AutoCloseButtons;
+        MainPlayer.loopPointReached += AutoCloseButtons;
     }
 
+    /*
     public void HotspotPlayer(VideoPlayer player)
     {
         if (player.isPrepared)
@@ -64,6 +84,7 @@ public class Video_Controller : MonoBehaviour
             player.Play();
         }
     }
+    */
 
     // disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo)
     // che prende da un array di hotspot
@@ -75,10 +96,10 @@ public class Video_Controller : MonoBehaviour
             {
                 i.SetActive(false);
             }
-            controller.PauseToggle(controller);
-            controller.Blur(true);
-            pauseButton.SetActive(true);
-            menuButton.enabled = true;
+            uiController.Pause();
+            uiController.Blur(true);
+            uiController.PauseButton.SetActive(true);
+            uiController.MenuButton.enabled = true;
         }
         catch
         {
@@ -88,10 +109,10 @@ public class Video_Controller : MonoBehaviour
 
     public void AutoCloseButtons(VideoPlayer player)
     {
-        pauseButton.SetActive(false);
-        menuButton.gameObject.SetActive(false);
-        restartButton.SetActive(true);
-        menuCanvas.SetActive(false);
+        uiController.PauseButton.SetActive(false);
+        uiController.MenuButton.gameObject.SetActive(false);
+        uiController.RestartButton.SetActive(true);
+        uiController.MenuCanvas.SetActive(false);
     }
 
 }
