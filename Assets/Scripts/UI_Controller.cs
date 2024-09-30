@@ -6,57 +6,17 @@ using UnityEngine.Rendering.PostProcessing;
 public class UI_Controller : MonoBehaviour
 {
     int currentScene;
-    [SerializeField] bool _isPaused;
-    Animator _animationController;
-     Button _button1;
-    Button _button2;
-    GameObject _pauseButton;
-    GameObject _playButton;
-    Button _menuButton;
-    GameObject _menuCanvas;
-    GameObject _restartButton;
 
-    public bool IsPaused { get { return _isPaused; } set { _isPaused = value; } }
-    public Animator AnimationController
-    {
-        get { return _animationController; }
-        set { _animationController = value; }
-    }
-    public Button Button1
-    {
-        get { return _button1; }
-        set { _button1 = value; }
-    }
-    public Button Button2
-    {
-        get { return _button2; }
-        set { _button2 = value; }
-    }
-    public GameObject PauseButton
-    {
-        get { return _pauseButton; }
-        set { _pauseButton = value; }
-    }
-    public GameObject PlayButton
-    {
-        get { return _playButton; }
-        set { _playButton = value; }
-    }
-    public GameObject RestartButton
-    {
-        get { return _restartButton; }
-        set { _restartButton = value; }
-    }
-    public Button MenuButton
-    {
-        get { return _menuButton; }
-        set { _menuButton = value; }
-    }
-    public GameObject MenuCanvas
-    {
-        get { return _menuCanvas; }
-        set { _menuCanvas = value; }
-    }
+    public bool IsPaused { get; set; }
+
+    public static Animator AnimationController { get; private set; }
+    public static Button Button1 { get; set; }
+    public static Button Button2 { get; set; }
+    public static GameObject PauseButton { get; set; }
+    public static GameObject PlayButton { get; set; }
+    public static GameObject RestartButton { get; set; }
+    public static Button MenuButton { get; set; }
+    public static GameObject MenuCanvas { get; set; }
 
     public void Fullscreen()
     {
@@ -70,15 +30,14 @@ public class UI_Controller : MonoBehaviour
 
     private void Start()
     {
-        IsPaused = false;
-        _animationController = GetComponent<Animator>();
-        _button1 = GameObject.Find("Button_1").GetComponent<Button>();
-        _button2 = GameObject.Find("Button_2").GetComponent<Button>();
-        _pauseButton = GameObject.Find("Button_Pause");
-        _playButton = GameObject.Find("Button_Play");
-        _restartButton = GameObject.Find("Button_Restart");
-        _menuButton = GameObject.Find("Button_Menu").GetComponent<Button>();
-        _menuCanvas = GameObject.Find("Menu_Canvas");
+        AnimationController = GetComponent<Animator>();
+        Button1 = GameObject.Find("Button_1").GetComponent<Button>();
+        Button2 = GameObject.Find("Button_2").GetComponent<Button>();
+        PauseButton = GameObject.Find("Button_Pause");
+        PlayButton = GameObject.Find("Button_Play");
+        RestartButton = GameObject.Find("Button_Restart");
+        MenuButton = GameObject.Find("Button_Menu").GetComponent<Button>();
+        MenuCanvas = GameObject.Find("Menu_Canvas");
 
         currentScene = SceneManager.GetActiveScene().buildIndex;
 

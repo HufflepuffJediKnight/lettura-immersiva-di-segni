@@ -6,55 +6,43 @@ using UnityEngine.UI;
 
 public class Video_Controller : MonoBehaviour
 {
-    UI_Controller uiController;
-
-    GameObject[] _videoPlayers;
-    VideoPlayer _mainPlayer;
-    GameObject[] _hotspots;
-
+    static UI_Controller uiController;
+    static Button menuButton = UI_Controller.MenuButton;
+    static GameObject pauseButton = UI_Controller.PauseButton;
+    static GameObject restartButton = UI_Controller.RestartButton;
+    static GameObject menuCanvas = UI_Controller.MenuCanvas;
     VideoPlayer currentPlayer;
 
-    public GameObject[] VideoPlayers
+    public  static GameObject[] VideoPlayers
     {
-        get { return _videoPlayers; }
-        set
-        {
-            VideoPlayers.Append(MainPlayer.gameObject).ToArray();
-            VideoPlayers.Append(GameObject.Find("Hotspot_1_Player")).ToArray();
-            VideoPlayers.Append(GameObject.Find("Hotspot_2_Player")).ToArray();
-        }
+        get { return VideoPlayers; }
     }
-    public VideoPlayer MainPlayer
+    public static VideoPlayer MainPlayer
     {
-        get { return _mainPlayer; }
-        set { _mainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>(); }
+        get { return MainPlayer;}
+        set { }
     }
-    public GameObject[] Hotspots
+    public static GameObject[] Hotspots
     {
-        get { return _hotspots; }
-        set
-        {
-            Hotspots = Hotspots.Append(GameObject.Find("Hotspot_1")).ToArray();
-            Hotspots = Hotspots.Append(GameObject.Find("Hotspot_2")).ToArray();
-        }
-    }
-
-    public void PrepareVideos()
-    {
-        for (int i = 0; i < VideoPlayers.Length; i++)
-        {
-            VideoPlayers[i].GetComponent<VideoPlayer>().Prepare();
-        }
-        MainPlayer.GetComponent<VideoPlayer>().Prepare();
+        get { return Hotspots; }
+        set { }
     }
 
     private void Start()
     {
+        VideoPlayers.Append(MainPlayer.gameObject).ToArray();
+        VideoPlayers.Append(GameObject.Find("Hotspot_1_Player")).ToArray();
+        VideoPlayers.Append(GameObject.Find("Hotspot_2_Player")).ToArray();
+
+        MainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>();
+
+        Hotspots.Append(GameObject.Find("Hotspot_1")).ToArray();
+        Hotspots.Append(GameObject.Find("Hotspot_2")).ToArray();
     }
 
     private void Update()
     {
-        PrepareVideos();
+//        PrepareVideos();
         CheckVideoStatus();
     }
 
@@ -69,12 +57,21 @@ public class Video_Controller : MonoBehaviour
             if (currentPlayer.isPlaying)
             {
                 currentPlayer.loopPointReached += AutoCloseHotspots;
-                uiController.MenuButton.enabled = false;
+                menuButton.enabled = false;
             }
         }
         MainPlayer.loopPointReached += AutoCloseButtons;
     }
-
+/*
+    public void PrepareVideos()
+    {
+        for (int i = 0; i < VideoPlayers.Length; i++)
+        {
+            VideoPlayers[i].GetComponent<VideoPlayer>().Prepare();
+        }
+        MainPlayer.GetComponent<VideoPlayer>().Prepare();
+    }
+*/
     /*
     public void HotspotPlayer(VideoPlayer player)
     {
@@ -98,8 +95,8 @@ public class Video_Controller : MonoBehaviour
             }
             uiController.Pause();
             uiController.Blur(true);
-            uiController.PauseButton.SetActive(true);
-            uiController.MenuButton.enabled = true;
+            pauseButton.SetActive(true);
+            menuButton.enabled = true;
         }
         catch
         {
@@ -109,10 +106,10 @@ public class Video_Controller : MonoBehaviour
 
     public void AutoCloseButtons(VideoPlayer player)
     {
-        uiController.PauseButton.SetActive(false);
-        uiController.MenuButton.gameObject.SetActive(false);
-        uiController.RestartButton.SetActive(true);
-        uiController.MenuCanvas.SetActive(false);
+        pauseButton.SetActive(false);
+        menuButton.gameObject.SetActive(false);
+        restartButton.SetActive(true);
+        menuCanvas.SetActive(false);
     }
 
 }

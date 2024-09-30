@@ -131,26 +131,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135865888}
-  - component: {fileID: 135865887}
+  - component: {fileID: 135865889}
   m_Layer: 0
   m_Name: Input_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &135865887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135865886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91dd6c69ab3939649a4853f997c6ad3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!4 &135865888
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +154,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135865889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135865886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dd6c69ab3939649a4853f997c6ad3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &256137055
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaused: 0
 --- !u!95 &311109153
 Animator:
   serializedVersion: 5
@@ -473,7 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaused: 0
 --- !u!114 &400281230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaused: 0
 --- !u!95 &617189253
 Animator:
   serializedVersion: 5
@@ -2697,7 +2694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaused: 0
 --- !u!114 &1328123340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,7 +2754,7 @@ VideoPlayer:
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
+  m_SkipOnDrop: 0
   m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
@@ -3631,7 +3627,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 17fa5e35964770f4ea5be3da624fd850, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: eae1d5b6e7c66fc4b89f3388f97159b3, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -4157,7 +4153,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 5
@@ -4174,7 +4170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791661f0bd49c5b4584c409b6364e8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaused: 0
 --- !u!1 &2088425967
 GameObject:
   m_ObjectHideFlags: 0

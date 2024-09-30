@@ -15,7 +15,7 @@ public class Menu_Controller : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 */
-    public void SceneChooser(int sceneIndex)
+    public static void SceneChooser(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }

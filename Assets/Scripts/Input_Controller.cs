@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Input_Controller : MonoBehaviour
@@ -5,9 +7,13 @@ public class Input_Controller : MonoBehaviour
     UI_Controller uiController;
     Video_Controller videoController;
 
+    static GameObject pauseButton = UI_Controller.PauseButton;
+    static GameObject playButton = UI_Controller.PauseButton;
+    static GameObject[] hotspots;
+
     private void Start()
     {
-        
+        hotspots = Video_Controller.Hotspots;
     }
 
     void Update()
@@ -22,19 +28,19 @@ public class Input_Controller : MonoBehaviour
             if (!uiController.IsPaused)
             {
                 uiController.Pause();
-                uiController.PauseButton.SetActive(false);
-                uiController.PlayButton.SetActive(true);
+                pauseButton.SetActive(false);
+                playButton.SetActive(true);
             }
 
             else if (uiController.IsPaused)
             {
                 uiController.Play();
-                uiController.PauseButton.SetActive(false);
-                uiController.PlayButton.SetActive(true);
+                pauseButton.SetActive(false);
+                playButton.SetActive(true);
             }
             else
             {
-                foreach (var coso in videoController.Hotspots)
+                foreach (var coso in hotspots)
                 {
                     if (coso.activeSelf)
                     {
