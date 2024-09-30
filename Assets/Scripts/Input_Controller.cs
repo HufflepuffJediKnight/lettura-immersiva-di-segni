@@ -13,7 +13,7 @@ public class Input_Controller : MonoBehaviour
 
     private void Start()
     {
-        hotspots = Video_Controller.Hotspots;
+//        hotspots = Video_Controller.Hotspots;
     }
 
     void Update()

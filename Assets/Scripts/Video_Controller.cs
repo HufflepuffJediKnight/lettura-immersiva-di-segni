@@ -16,6 +16,7 @@ public class Video_Controller : MonoBehaviour
     public  static GameObject[] VideoPlayers
     {
         get { return VideoPlayers; }
+        set { }
     }
     public static VideoPlayer MainPlayer
     {
@@ -30,11 +31,10 @@ public class Video_Controller : MonoBehaviour
 
     private void Start()
     {
+        MainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>();
         VideoPlayers.Append(MainPlayer.gameObject).ToArray();
         VideoPlayers.Append(GameObject.Find("Hotspot_1_Player")).ToArray();
         VideoPlayers.Append(GameObject.Find("Hotspot_2_Player")).ToArray();
-
-        MainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>();
 
         Hotspots.Append(GameObject.Find("Hotspot_1")).ToArray();
         Hotspots.Append(GameObject.Find("Hotspot_2")).ToArray();
