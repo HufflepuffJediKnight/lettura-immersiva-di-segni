@@ -204,7 +204,6 @@ MonoBehaviour:
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
-  m_foveatedRenderingApi: 0
 --- !u!114 &-4597397725233867134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +422,6 @@ MonoBehaviour:
   - {fileID: -5543008032039543747}
   - {fileID: 5654540036311141225}
   - {fileID: -975070167674953828}
-  - {fileID: -7780057624138559620}
   - {fileID: 2415563957714929339}
   - {fileID: 8141816352263587483}
   - {fileID: 2274642903148757094}
@@ -448,7 +446,6 @@ MonoBehaviour:
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
-  m_foveatedRenderingApi: 0
 --- !u!114 &-975070167674953828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +482,6 @@ MonoBehaviour:
   - {fileID: 6641290702841609765}
   - {fileID: 6190307738801689937}
   - {fileID: 4494293837792681835}
-  - {fileID: -3177982818271761495}
   - {fileID: 7146787555999875128}
   - {fileID: -5285192388529630140}
   - {fileID: 402545760509149780}
@@ -508,7 +504,6 @@ MonoBehaviour:
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
-  m_foveatedRenderingApi: 0
 --- !u!114 &-53490981033912312
 MonoBehaviour:
   m_ObjectHideFlags: 0
