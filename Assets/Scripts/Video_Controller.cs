@@ -6,29 +6,44 @@ using UnityEngine.UI;
 
 public class Video_Controller : MonoBehaviour
 {
-    static UI_Controller uiController;
-    static Button menuButton = UI_Controller.MenuButton;
-    static GameObject pauseButton = UI_Controller.PauseButton;
-    static GameObject restartButton = UI_Controller.RestartButton;
-    static GameObject menuCanvas = UI_Controller.MenuCanvas;
+    // la classe Video_Controller si occupa della gestione dei VideoPlayer e delle funzioni che
+    // vengono chiamate una volta terminati
+
+    /// <summary>
+    /// qui viene istanziata la classe UI_Controller e vengono dichiarate delle variabili
+    /// con i valori provenienti dallo script UI_Controller
+    /// </summary>
+    UI_Controller uiController;
+    Button menuButton = UI_Controller.MenuButton;
+    GameObject pauseButton = UI_Controller.PauseButton;
+    GameObject restartButton = UI_Controller.RestartButton;
+    GameObject menuCanvas = UI_Controller.MenuCanvas;
     VideoPlayer currentPlayer;
 
-    public  static GameObject[] VideoPlayers
+    // qui vengono dichiarate le proprietà relative ai player video
+    public  static GameObject[] VideoPlayers 
     {
+        // array dei GameObject che contengono il componente VideoPlayer, ovvero quello del video principale e i due hotspot
         get { return VideoPlayers; }
         set { }
     }
     public static VideoPlayer MainPlayer
     {
+        // che contiene il player del video principale
         get { return MainPlayer;}
         set { }
     }
     public static GameObject[] Hotspots
     {
+        // array dei componenti Videoplayer dei due Hotspot, è praticamente un duplicato dell' array precedente che
+        // serve per il metodo AutoCloseHotspots e il PauseToggle in Input_Controller
         get { return Hotspots; }
         set { }
     }
 
+    /// <summary>
+    /// qui vengono inizializzati gli array di VideoPlayer e GameObject e la proprietà MainPlayer
+    /// </summary>
     private void Start()
     {
         MainPlayer = GameObject.Find("Video_Player").GetComponent<VideoPlayer>();
@@ -40,15 +55,22 @@ public class Video_Controller : MonoBehaviour
         Hotspots.Append(GameObject.Find("Hotspot_2")).ToArray();
     }
 
+    /// <summary>
+    /// viene chiamata la funzione CheckVideoStatus e ho provato a chiamare PrepareVideos in Update
+    /// invece che in Start,però in entrambi casi non sembrava avere alcun effetto
+    /// </summary>
     private void Update()
     {
 //        PrepareVideos();
         CheckVideoStatus();
     }
 
-    //controlla se uno dei due videoplayer degli hotspot sta riproducendo un video
-    //se sì lo assegna alla variabile currentPlayer e alla fine della riproduzione
-    //attiverà la funzione AutoCloseHotspots
+    /// <summary>
+    /// controlla se uno dei due videoplayer degli hotspot sta riproducendo un video
+    /// se sì lo assegna alla variabile currentPlayer e alla fine della riproduzione
+    /// attiverà la funzione AutoCloseHotspots. Invece alla fine del video principale
+    /// verrà attivata la funzione AutoCloseButtons
+    /// </summary>
     public void CheckVideoStatus()
     {
         foreach (var i in VideoPlayers)
@@ -62,16 +84,21 @@ public class Video_Controller : MonoBehaviour
         }
         MainPlayer.loopPointReached += AutoCloseButtons;
     }
-/*
-    public void PrepareVideos()
-    {
-        for (int i = 0; i < VideoPlayers.Length; i++)
+
+    // questi due metodi commentati dovevano servire a risolvere il problema dello stutter all'inizio
+    // degli hotspot, preparando i video e facendoli partire solo una volta preparati, andando a sostituire
+    // con HotspotPlayer il metodo Play del componente VideoPlayer di Unity
+
+    /*
+        public void PrepareVideos()
         {
-            VideoPlayers[i].GetComponent<VideoPlayer>().Prepare();
+            for (int i = 0; i < VideoPlayers.Length; i++)
+            {
+                VideoPlayers[i].GetComponent<VideoPlayer>().Prepare();
+            }
+            MainPlayer.GetComponent<VideoPlayer>().Prepare();
         }
-        MainPlayer.GetComponent<VideoPlayer>().Prepare();
-    }
-*/
+    */
     /*
     public void HotspotPlayer(VideoPlayer player)
     {
@@ -83,8 +110,12 @@ public class Video_Controller : MonoBehaviour
     }
     */
 
-    // disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo)
-    // che prende da un array di hotspot
+    /// <summary>
+    /// disattiva entrambi gli hotspots (anche se uno dei due sarà già disattivo) che prende dall' array Hotspots,
+    /// disattiva il blur, e riattiva i pulsanti della UI
+    /// </summary>
+    /// <param name="player"></param>
+    /// <exception cref="NotImplementedException"></exception>
     public void AutoCloseHotspots(VideoPlayer player)
     {
         try
@@ -104,6 +135,7 @@ public class Video_Controller : MonoBehaviour
         }
     }
 
+    // serve a disattivare il pulsante di pausa, il pulsante del menu e il menu (se attivo) e attivare il pulsante replay alla fine del video
     public void AutoCloseButtons(VideoPlayer player)
     {
         pauseButton.SetActive(false);
