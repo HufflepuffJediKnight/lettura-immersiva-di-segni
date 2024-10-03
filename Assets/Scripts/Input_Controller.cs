@@ -9,23 +9,19 @@ public class Input_Controller : MonoBehaviour
     /// da UI_Controller e Video_Controller
     /// </summary>
 
-    UI_Controller uiController;
-    Video_Controller videoController;
+   
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject playButton; 
+    [SerializeField] private GameObject[] hotspotsArray;
 
-    // qui vengono dichiarate le variabili necessarie assegnando i valori dallo script UI_Controller
-    static GameObject pauseButton = UI_Controller.PauseButton;
-    static GameObject playButton = UI_Controller.PauseButton;
-    static GameObject[] hotspots;
 
-    /// <summary>
-    /// qui vengono assegnati all'array hotspots gli elementi dell'array Hotspots della classe Video_Controller
-    /// l'ho commentato perché fa crashare l'applicazione 
-    /// </summary>
-    private void Start()
+    private UI_Controller uiController;
+
+
+    private void Awake()
     {
-//        hotspots = Video_Controller.Hotspots;
+        uiController = FindObjectOfType<UI_Controller>();
     }
-
 
     void Update()
     {
@@ -43,22 +39,22 @@ public class Input_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!uiController.IsPaused)
+            if (!uiController.IsVideoPaused())
             {
-                uiController.Pause();
+                uiController.PauseMainVideo();
                 pauseButton.SetActive(false);
                 playButton.SetActive(true);
             }
 
-            else if (uiController.IsPaused)
+            else if (uiController.IsVideoPaused())
             {
-                uiController.Play();
-                pauseButton.SetActive(false);
-                playButton.SetActive(true);
+                uiController.PlayMainVideo();
+                pauseButton.SetActive(true);
+                playButton.SetActive(false);
             }
             else
             {
-                foreach (var i in hotspots)
+                foreach (var i in hotspotsArray)
                 {
                     if (i.activeSelf)
                     {

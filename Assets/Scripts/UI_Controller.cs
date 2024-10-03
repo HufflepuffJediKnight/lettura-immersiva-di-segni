@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering.PostProcessing;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -10,20 +12,68 @@ public class UI_Controller : MonoBehaviour
     /// i due pulsanti per aprire gli hotspot, i pulsanti di pausa/play e quello di replay.
     /// </summary>
 
-    int currentScene;
+   
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Button button1;
+    [SerializeField] private Button button2;
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject playButton;
 
-    // qui vengono dichiarate le proprietà necessarie per gli script, ovvero gli elementi della UI come pulsanti e ui canvas
+    [SerializeField] private GameObject fullscreenButton;
+    [SerializeField] private GameObject fullscreenExitButton;
+
+    [SerializeField] private GameObject menuButton;
+    [SerializeField] private GameObject restartButton;
+    [SerializeField] private GameObject menuPanel;
+
+    [SerializeField] private GameObject hotspot1;
+    [SerializeField] private GameObject hotspot2;
+
+
+    private bool isPaused;
+
+
+    private void OnEnable()
+    {
+        Video_Controller.OnMainVideoFinished += VideoController_OnMainVideoFinished;
+    }
+
     
-    public bool IsPaused { get; set; }
+    private void OnDisable()
+    {
+        Video_Controller.OnMainVideoFinished -= VideoController_OnMainVideoFinished;
+    }
 
-    private Animator AnimationController { get; set; }
-    private Button Button1 { get; set; }
-    private Button Button2 { get; set; }
-    private GameObject PauseButton { get; set; }
-    private GameObject PlayButton { get; set; }
-    private GameObject RestartButton { get; set; }
-    private Button MenuButton { get; set; }
-    private GameObject MenuCanvas { get; set; }
+
+    private void Start()
+    {
+
+        button1.onClick.AddListener(delegate { ButtonDestroyer(button1); });
+        button2.onClick.AddListener(delegate { ButtonDestroyer(button2); });
+    }
+
+    // qui viene controllato se il dispositivo ha un touchscreen
+    private void Update()
+    {
+        CheckInputMethod();
+    }
+
+    private void VideoController_OnMainVideoFinished()
+    {
+        EnableRestartButton();
+    }
+
+    private void EnableRestartButton()
+    {
+        restartButton.SetActive(true);
+
+        pauseButton.SetActive(false);
+        menuButton.SetActive(false);
+        menuPanel.SetActive(false);
+        fullscreenButton.SetActive(false);
+        fullscreenExitButton.SetActive(false);
+    }
+
 
     // queste funzioni vengono chiamate rispettivamente dai pulsanti Button_Fullscreen e Button_Fullscreen_Exit
     public void Fullscreen()
@@ -35,54 +85,30 @@ public class UI_Controller : MonoBehaviour
         Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 
-    /// <summary>
-    /// nello Start vengono assegnati i GameObject alle proprietà, viene assegnato l'indice di build della scena
-    /// alla variabile currentScene che serve per il replay e vengono aggiunti due listener che dovrebbero disattivare
-    /// permanentemente i due pulsanti degli hotspot una volta cliccati
-    /// </summary>
-    private void Start()
+    
+    public void PauseMainVideo()
     {
-        AnimationController = GetComponent<Animator>();
-        Button1 = GameObject.Find("Button_1").GetComponent<Button>();
-        Button2 = GameObject.Find("Button_2").GetComponent<Button>();
-        PauseButton = GameObject.Find("Button_Pause");
-        PlayButton = GameObject.Find("Button_Play");
-        RestartButton = GameObject.Find("Button_Restart");
-        MenuButton = GameObject.Find("Button_Menu").GetComponent<Button>();
-        MenuCanvas = GameObject.Find("Menu_Canvas");
+//        pauseButton.SetActive(false);
+//        playButton.SetActive(true);
 
-        currentScene = SceneManager.GetActiveScene().buildIndex;
-
-        Button1.onClick.AddListener(delegate { ButtonDestroyer(Button1); });
-        Button2.onClick.AddListener(delegate { ButtonDestroyer(Button2); });
-    }
-
-    // qui viene controllato se il dispositivo ha un touchscreen
-    private void Update()
-    {
-        CheckInputMethod();
-    }
-
-    /// <summary>
-    /// queste sono le funzioni per la gestione della pausa del video principale e dell'animazione che fa
-    /// comparire i pulsanti hotspot, il resto dell'interfaccia grafica è animata in unscaled time
-    /// che permette di interagirci anche durante la pausa. viene usata la proprietà booleana IsPaused
-    /// per determinare all'interno della funzione PauseToggle in Input_Controller lo stato dell'applicazione
-    /// </summary>
-    public void Pause()
-    {
         Time.timeScale = 0.0f;
-        IsPaused = true;
+        isPaused = true;     
     }
 
-    public void Play()
+    public void PlayMainVideo()
     {
+//        pauseButton.SetActive(true);
+//        playButton.SetActive(false);
+
         Time.timeScale = 1.0f;
-        IsPaused = false;
+        isPaused = false;
     }
+
     // la funzione di restart è assegnata al pulsante Button_Restart che compare una volta terminato il video principale
-    public void Restart()
+    public void RestartScene()
     {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+
         SceneManager.LoadScene(currentScene);
     }
 
@@ -90,10 +116,10 @@ public class UI_Controller : MonoBehaviour
     public void Blur(bool isBlurred)
     {
         PostProcessVolume postVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+
         if (!isBlurred)
         {
             postVolume.enabled = true;
-            isBlurred = true;
         }
         else
         {
@@ -108,12 +134,12 @@ public class UI_Controller : MonoBehaviour
     /// risolvere chiamandaìo il colorblock come nella funzione CheckInputMethod presente sotto invece di .image.color
     /// </summary>
     /// <param name="button"></param>
-    public void ButtonDestroyer(Button button)
+    private void ButtonDestroyer(Button button)
     {
         Button.Destroy(button);
-        AnimationController.enabled = false;
+        _animator.enabled = false;
         button.image.color = new Color(0, 0, 0, 0);
-        AnimationController.enabled = true;
+        _animator.enabled = true;
     }
 
     /// <summary>
@@ -121,18 +147,27 @@ public class UI_Controller : MonoBehaviour
     /// il pulsante pausa si ingrandisce, per essere toccato più facilmente, e cambia colore per non essere trasparente
     /// come di default, è da cambiare così che ogni volta che viene toccato lo schermo il pulsante di pausa scompaia dopo un po' 
     /// </summary>
-    public void CheckInputMethod()
+    /// 
+
+    // TODO
+    private void CheckInputMethod()
     {
-        Button pauseButton = PauseButton.GetComponent<Button>();
+        Button pauseButtonTest = pauseButton.GetComponent<Button>();
         if (Input.touchCount != 0)
         {
-            ColorBlock cb = pauseButton.colors;
+            ColorBlock cb = pauseButtonTest.colors;
             cb.normalColor = new Color(250, 250, 250);
-            pauseButton.colors = cb;
+            pauseButtonTest.colors = cb;
             pauseButton.transform.localScale = new Vector3(2, 2, 2);
             pauseButton.transform.position = new Vector3(0, -440, 0);
-            PlayButton.transform.localScale = new Vector3(2, 2, 2);
-            PlayButton.transform.position = new Vector3(0, -440, 0);
+            playButton.transform.localScale = new Vector3(2, 2, 2);
+            playButton.transform.position = new Vector3(0, -440, 0);
         }
     }
+
+    public bool IsVideoPaused()
+    {
+        return isPaused;
+    }
+   
 }
